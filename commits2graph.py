@@ -21,7 +21,7 @@ def make_graphs(list_of_json_files, output_directory):
     for filename in list_of_json_no_path:
         # Split the filename into parts using the underscore character
         parts = filename.split("_")
-        print(parts)
+        # print(parts)
 
         modelhub = parts[0]
         parts.remove(modelhub)
@@ -38,15 +38,22 @@ def make_graphs(list_of_json_files, output_directory):
         if output_directory[-1] != "/":
             output_directory += "/"
 
-        output_graph_name = output_directory+modelhub+"_"+author+"_"+model+"commitsGraph.png"
-        list_of_output_names.append(output_graph_name)
+        output_graph_name = output_directory + modelhub + "_" + author + "_" + model + "_commitsGraph.png"
+        graph_title = "Graph of commits for " + modelhub + ": " + author + "/" + model
+        list_of_output_names.append((output_graph_name, graph_title))
 
     # map each full path to each output name
     input_output_map = dict(zip(list_of_json_files, list_of_output_names))
 
     # call the clime-git-commits-graph script
-    for input_file, output_file in input_output_map.items():
-        subprocess.call(["clime-git-commits-graph", "-i", input_file, "-o", output_file])
+    for input_file, output_tuple in input_output_map.items():
+        subprocess.call(["clime-git-commits-graph",
+                         "-i", input_file,
+                         "-o", output_tuple[0],
+                         "--title", output_tuple[1],
+                         "--x-label", "Author Days Since 0",
+                         "--y-label", "Lines of Code"])
+        print("Graph created for: " + output_tuple[0])
 
 
 if __name__ == '__main__':
