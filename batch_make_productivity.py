@@ -45,7 +45,7 @@ def make_productivity_json(list_of_json_files, output_directory):
 
     # call the clime-git-commits-graph script
     for input_file, output_file in input_output_map.items():
-        subprocess.call(["clime-git-productivity-compute",
+        subprocess.call(["clime-productivity-compute",
                          "-i", input_file,
                          "-o", output_file])
         print("Productivity .json created for: " + output_file)
