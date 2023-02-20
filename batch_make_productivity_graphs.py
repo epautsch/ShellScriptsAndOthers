@@ -38,8 +38,8 @@ def make_graphs(list_of_json_files, output_directory, stylesheet):
         if output_directory[-1] != "/":
             output_directory += "/"
 
-        output_graph_name = output_directory + modelhub + "_" + author + "_" + model + "_busFactorGraph.png"
-        graph_title = "Bus Factor/Days Since 0 for" + modelhub.title() + ": " + author + "/" + model
+        output_graph_name = output_directory + modelhub + "_" + author + "_" + model + "_productivity.png"
+        graph_title = "Productivity/Days Since 0 for" + modelhub.title() + ": " + author + "/" + model
         list_of_output_names.append((output_graph_name, graph_title))
 
     # map each full path to each output name
@@ -47,13 +47,13 @@ def make_graphs(list_of_json_files, output_directory, stylesheet):
 
     # call the clime-git-commits-graph script
     for input_file, output_tuple in input_output_map.items():
-        subprocess.call(["clime-git-bus-factor-graph",
+        subprocess.call(["clime-productivity-graph",
                          "-i", input_file,
                          "-o", output_tuple[0],
                          "--type", "line",
                          "--title", output_tuple[1],
                          "--x-label", "Days Since 0",
-                         "--y-label", "Bus Factor",
+                         "--y-label", "Productivity",
                          "--stylesheet" if stylesheet != "" else "",
                          stylesheet if stylesheet != "" else ""])
         print("Graph created for: " + output_tuple[0])
