@@ -12,7 +12,7 @@ def search_for_json_files(search_directory):
 
 
 # function to call the clime-git-commits-graph script
-def make_graphs(list_of_json_files, output_directory):
+def make_graphs(list_of_json_files, output_directory, stylesheet):
     # get base name of each file
     list_of_json_no_path = [os.path.basename(x) for x in list_of_json_files]
 
@@ -39,7 +39,7 @@ def make_graphs(list_of_json_files, output_directory):
             output_directory += "/"
 
         output_graph_name = output_directory + modelhub + "_" + author + "_" + model + "_commitsGraph.png"
-        graph_title = "Graph of commits for " + modelhub + ": " + author + "/" + model
+        graph_title = "KLOC/Author Days Since 0 for" + modelhub.title() + ": " + author + "/" + model
         list_of_output_names.append((output_graph_name, graph_title))
 
     # map each full path to each output name
@@ -52,7 +52,9 @@ def make_graphs(list_of_json_files, output_directory):
                          "-o", output_tuple[0],
                          "--title", output_tuple[1],
                          "--x-label", "Author Days Since 0",
-                         "--y-label", "Lines of Code"])
+                         "--y-label", "KLOC",
+                         "--stylesheet" if stylesheet != "" else "",
+                         stylesheet if stylesheet != "" else ""])
         print("Graph created for: " + output_tuple[0])
 
 
@@ -63,8 +65,11 @@ if __name__ == '__main__':
     # get the output directory from the command line
     output_directory = sys.argv[2]
 
+    # get the stylesheet from the command line
+    stylesheet = sys.argv[3] if len(sys.argv) > 3 else ""
+
     # search for json files
     json_files = search_for_json_files(search_directory)
 
     # make graphs
-    make_graphs(json_files, output_directory)
+    make_graphs(json_files, output_directory, stylesheet)
