@@ -39,7 +39,7 @@ def make_graphs(list_of_json_files, output_directory, stylesheet):
             output_directory += "/"
 
         output_graph_name = output_directory + modelhub + "_" + author + "_" + model + "_commitsGraph.png"
-        graph_title = "KLOC/Author Days Since 0 for" + modelhub.title() + ": " + author + "/" + model
+        graph_title = "KLOC/Author Days Since 0 for: " + modelhub.title() + ": " + author + "/" + model
         list_of_output_names.append((output_graph_name, graph_title))
 
     # map each full path to each output name

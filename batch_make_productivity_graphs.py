@@ -52,7 +52,7 @@ def make_graphs(list_of_json_files, output_directory, stylesheet):
                          "-o", output_tuple[0],
                          "--type", "line",
                          "--title", output_tuple[1],
-                         "--x-label", "Days Since 0",
+                         "--x-label", "Author Days Since 0",
                          "--y-label", "Productivity",
                          "--stylesheet" if stylesheet != "" else "",
                          stylesheet if stylesheet != "" else ""])
