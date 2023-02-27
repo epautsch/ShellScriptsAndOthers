@@ -69,7 +69,7 @@ def JIT_batch() -> Namespace:
         help="Directory of expected incoming transfer files. DEFAULT: is provided",
         type=str,
         required=False,
-        default='/~/PTM-Torrent/globus_api_test/',
+        default='~/PTM-Torrent/globus_api_test/',
     )
     parser.add_argument(
         "-p",
