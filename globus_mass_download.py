@@ -73,7 +73,7 @@ def main():
     args_globus: Namespace = globus_mass()
     args_jit = Namespace(output_json="./output_dir",
                          output_unzip="./unzip.dir",
-                         incoming="./incoming_dir",
+                         incoming=args_globus.dest_path,
                          process_single=True)
     JIT_batch_json_commits.make_dirs(args_jit.incoming)
 

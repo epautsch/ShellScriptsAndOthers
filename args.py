@@ -29,14 +29,14 @@ def globus_mass() -> Namespace:
         "--source_endpoint",
         help=f'Globus endpoint for transfer source. DEFAULT: ""',
         type=str,
-        required=True,
+        required=False,
         default=""
     )
     parser.add_argument(
         "--dest_endpoint",
         help=f'Globus endpoint for transfer destination. DEFAULT: ""',
         type=str,
-        required=True,
+        required=False,
         default=""
     )
     return parser.parse_args()
