@@ -4,7 +4,7 @@ import logging
 import globus_sdk
 from argparse import Namespace
 
-from args import globus_mass
+from args import globus_mass, JIT_batch
 import JIT_batch_json_commits
 
 
@@ -71,10 +71,7 @@ def transfer_data(tc: globus_sdk.TransferClient,
 
 def main():
     args_globus: Namespace = globus_mass()
-    args_jit = Namespace(output_json="./output_dir",
-                         output_unzip="./unzip.dir",
-                         incoming=args_globus.dest_path,
-                         process_single=True)
+    args_jit: Namespace = JIT_batch()
     JIT_batch_json_commits.make_dirs(args_jit.incoming)
 
     log_file = os.path.join(args_globus.dest_path, 'transfer.log')
@@ -86,31 +83,11 @@ def main():
     for ep in tc.endpoint_search(filter_scope='my-endpoints'):
         print('[{}] {}'.format(ep['id'], ep['display_name']))
 
-    if args_globus.source_path == "":
-        source_path = '/~/huggingface/'
-    else:
-        source_path = args_globus.source_path
-
-    if args_globus.dest_path == "":
-        dest_path = '/~/globus_api_test/'
-    else:
-        dest_path = args_globus.dest_path
-
-    if args_globus.source_endpoint == "":
-        source_endpoint_id = '55e17a6e-9d8f-11ed-a2a2-8383522b48d9'
-    else:
-        source_endpoint_id = args_globus.source_endpoint
-
-    if args_globus.dest_endpoint == "":
-        dest_endpoint_id = 'e8d61c7a-ac81-11ed-adfd-bfc1a406350a'
-    else:
-        dest_endpoint_id = args_globus.dest_endpoint
-
     transfer_data(tc,
-                  source_path,
-                  dest_path,
-                  source_endpoint_id,
-                  dest_endpoint_id,
+                  args_globus.source_path,
+                  args_globus.dest_path,
+                  args_globus.source_endpoint,
+                  args_globus.dest_endpoint,
                   args_jit)
 
 

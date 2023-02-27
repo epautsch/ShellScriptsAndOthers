@@ -13,31 +13,31 @@ def globus_mass() -> Namespace:
 
     parser.add_argument(
         "--source_path",
-        help=f'Path of transfer source. DEFAULT: ""',
+        help=f'Path of transfer source. DEFAULT: "/~/huggingface/"',
         type=str,
-        required=True,
-        default=""
+        required=False,
+        default='/~/huggingface/'
     )
     parser.add_argument(
         "--dest_path",
-        help=f'Path of transfer destination. DEFAULT: ""',
+        help=f'Path of transfer destination. DEFAULT: "/~/PTM-Torrent/globus_api_test/"',
         type=str,
-        required=True,
-        default=""
+        required=False,
+        default='/~/PTM-Torrent/globus_api_test/'
     )
     parser.add_argument(
         "--source_endpoint",
-        help=f'Globus endpoint for transfer source. DEFAULT: ""',
+        help=f'Globus endpoint for transfer source. DEFAULT: is provided',
         type=str,
         required=False,
-        default=""
+        default='55e17a6e-9d8f-11ed-a2a2-8383522b48d9'
     )
     parser.add_argument(
         "--dest_endpoint",
-        help=f'Globus endpoint for transfer destination. DEFAULT: ""',
+        help=f'Globus endpoint for transfer destination. DEFAULT: is provided',
         type=str,
         required=False,
-        default=""
+        default='e8d61c7a-ac81-11ed-adfd-bfc1a406350a'
     )
     return parser.parse_args()
 
@@ -66,10 +66,10 @@ def JIT_batch() -> Namespace:
     parser.add_argument(
         "-i",
         "--incoming",
-        help="Directory of expected incoming transfer files. DEFAULT: ./incoming_dir",
+        help="Directory of expected incoming transfer files. DEFAULT: is provided",
         type=str,
         required=False,
-        default="./incoming_dir",
+        default='/~/PTM-Torrent/globus_api_test/',
     )
     parser.add_argument(
         "-p",
@@ -78,7 +78,7 @@ def JIT_batch() -> Namespace:
              "DEFAULT: False",
         type=bool,
         required=False,
-        default=False
+        default=True
     )
 
     return parser.parse_args()
