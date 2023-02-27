@@ -15,10 +15,10 @@ def track_files(files):
 
 
 def update_file_status(file, status):
-    with open('file_status.txt', 'r') as f:
+    with open('transfer_status.txt', 'r') as f:
         lines = f.readlines()
 
-    with open('file_status.txt', 'w') as f:
+    with open('transfer_status.txt', 'w') as f:
         for line in lines:
             if line.startswith(file['name']):
                 f.write(f'{file["name"]}: {status}\n')
