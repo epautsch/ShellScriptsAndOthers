@@ -8,6 +8,24 @@ from args import globus_mass, JIT_batch
 import JIT_batch_json_commits
 
 
+def track_files(files):
+    with open('transfer_status.txt', 'w') as f:
+        for file in files:
+            f.write(f'{file["name"]}: not yet processed\n')
+
+
+def update_file_status(file, status):
+    with open('file_status.txt', 'r') as f:
+        lines = f.readlines()
+
+    with open('file_status.txt', 'w') as f:
+        for line in lines:
+            if line.startswith(file['name']):
+                f.write(f'{file["name"]}: {status}\n')
+            else:
+                f.write(line)
+
+
 def make_transfer_client() -> globus_sdk.TransferClient:
     CLIENT_ID = 'c3a2f53f-046b-4f6d-92d8-81dc345a74f2'
     client = globus_sdk.NativeAppAuthClient(CLIENT_ID)
@@ -41,6 +59,9 @@ def transfer_data(tc: globus_sdk.TransferClient,
                   args: Namespace) -> None:
     endpoint_ls = tc.operation_ls(source_endpoint_id, path=source_path)
     files = [item for item in endpoint_ls if item['type'] == 'file' and item['size'] < (10 * 1024 * 1024 * 1024) - 37000000]
+    # files = [item for item in endpoint_ls if item['type'] == 'file']
+
+    track_files(files)
 
     for file in files:
         logging.info(f"Processing {file['name']}")
@@ -60,6 +81,7 @@ def transfer_data(tc: globus_sdk.TransferClient,
             minutes += 1
             print(f"{minutes} minute(s) have gone by since {task_id} has started")
         task = tc.get_task(task_id)
+        update_file_status(file, task['status'])
         if task['status'] == 'SUCCEEDED':
             logging.info(f"Transfer of {file['name']} succeeded")
             print(f"Transfer of {file['name']} completed successfully")

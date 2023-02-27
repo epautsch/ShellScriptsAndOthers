@@ -2,26 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/cascaded-fcn-liver" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/colab_deepcontrast" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/colab_liver" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/colab_lungmask" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/colab_nsclc" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/colab_pancreas" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/colab_platipy" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/colab_segthor" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/colab_totalsegmentator" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/cxr-risk" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/deep-prognosis" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/duc-semantic" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/inception-v3" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/lfb-rwth-brats" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/mic-dkfz-brats" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/mobilenet" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/resnet-50" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/unet-2d" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/vgg-19" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/xception" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unzip.dir/modelhub/PTMTorrent/ptm_torrent/modelhub/data/modelhub/repos/modelhub-ai/yolo-v3" vcs="Git" />
   </component>
 </project>
