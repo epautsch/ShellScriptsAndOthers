@@ -72,7 +72,7 @@ def main(args=JIT_batch()):
             if processing_q:
                 q_file_path = processing_q.pop(0)
                 process_tar_gz(q_file_path, args.output_unzip, args.output_json)
-                if not process_single:
+                if process_single:
                     return
             time.sleep(1)
     except KeyboardInterrupt:
