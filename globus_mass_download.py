@@ -97,7 +97,7 @@ def main():
     JIT_batch_json_commits.make_dirs(args_jit.incoming)
 
     # log_file = os.path.join(args_globus.dest_path, 'transfer.log')
-    log_file = '/home/epautsch/PTM-Torrent/globus_api_test/transfer.log'
+    log_file = '/home/epautsch/PTMTorrentAnalysis/globus_transfer_in/transfer.log'
     logging.basicConfig(filename=log_file, level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s')
 
     tc = make_transfer_client()
