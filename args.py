@@ -23,7 +23,7 @@ def globus_mass() -> Namespace:
         help=f'Path of transfer destination. DEFAULT: "/~/PTM-Torrent/globus_api_test/"',
         type=str,
         required=False,
-        default='/~/PTM-Torrent/globus_api_test/'
+        default='/~/PTMTorrentAnalysis/globus_transfer_in/'
     )
     parser.add_argument(
         "--source_endpoint",
@@ -37,7 +37,7 @@ def globus_mass() -> Namespace:
         help=f'Globus endpoint for transfer destination. DEFAULT: is provided',
         type=str,
         required=False,
-        default='e8d61c7a-ac81-11ed-adfd-bfc1a406350a'
+        default='2643387c-b880-11ed-b205-d150fa9edad1'
     )
     return parser.parse_args()
 
@@ -69,7 +69,7 @@ def JIT_batch() -> Namespace:
         help="Directory of expected incoming transfer files. DEFAULT: is provided",
         type=str,
         required=False,
-        default='/home/epautsch/PTM-Torrent/globus_api_test/',
+        default='/home/epautsch/PTMTorrentAnalysis/globus_transfer_in/',
     )
     parser.add_argument(
         "-p",
